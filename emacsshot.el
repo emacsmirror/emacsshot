@@ -20,10 +20,21 @@
 
 ;; Activation:
 ;;
+;; Activate this program by loading it into Emacs and evaluate it with
+;;
 ;; M-x eval-buffer
 ;;
+;; Optional: Automatically activate this program by adding the lines
+;;
+;; (add-to-list 'load-path "/...path to this program...")
+;; (require 'emacsshot)
+;;
+;; to your emacs-configuration-file, typically called '.emacs'.
+;;
 ;; Optional: Set a filename for the snapshot-image.  This is the value
-;; of variable `eshot-snap-frame-filename'.
+;; of variable `eshot-snap-frame-filename'.  You can customize it via
+;;
+;; M-x customize-variable
 ;;
 ;; 
 ;; Action:
@@ -31,6 +42,19 @@
 ;; Create a snapshot of the current Emacs-frame with
 ;;
 ;; M-x eshot-snap-frame
+;;
+;; It might be a good idea to activate the function by a key.
+;; You could define F6 to trigger the function-call with
+;;
+;; M-x eval-expression (global-set-key (kbd "<f6>") 'eshot-snap-frame)
+;;
+;;
+;; Precondition:
+;;
+;; 1. Emacs is running under X.
+;;
+;; 2. The program 'convert' of the ImageMagic-suite is available.
+;; 'convert' actually creates the snapshots.
 
 
 (defcustom eshot-snap-frame-filename "~/emacs-frame-snap.png"
@@ -38,16 +62,19 @@
 
 
 (defun eshot-snap-frame ()
-  "Save an image of the current frame.
+  "Save an image of the current Emacs-frame.
 
 The image is stored with the name defined in
-`eshot-snap-frame-filename'.  No check is done against overriding."
+`eshot-snap-frame-filename'.  There is no check against
+overriding.
+
+The window-decoration due to the window-manager gets not
+snapped."
   (interactive)
-  (let ((window-id (frame-parameter nil 'outer-window-id)))
-        (call-process
-	 "convert" nil (get-buffer-create "*convert-output*") nil
-	 (format "x:%s" window-id)
-	 (expand-file-name eshot-snap-frame-filename))))
+  (call-process
+   "convert" nil (get-buffer-create "*convert-output*") nil
+   (format "x:%s" (frame-parameter nil 'outer-window-id))
+   (expand-file-name eshot-snap-frame-filename)))
 
 
 (provide 'emacsshot)
