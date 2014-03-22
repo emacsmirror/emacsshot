@@ -58,7 +58,7 @@
 ;; 'convert' is the program that actually creates the snapshots.
 
 
-(defcustom eshot-snap-frame-filename "~/emacs-frame-snap.png"
+(defcustom eshot-snap-frame-filename "~/emacsshot.png"
   "Filename under which to store the next frame-snap.")
 
 
