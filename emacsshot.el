@@ -1,4 +1,4 @@
-;; emacsshot.el -- Snapshot an Emacs-moment from within emacs.
+;; emacsshot.el -- Snapshot an Emacs-frame from within emacs.
 ;; Copyright 2014 Marco Wahl
 ;;
 ;; This program is free software: you can redistribute it and/or modify
@@ -17,7 +17,8 @@
 ;; Version: 0.0
 ;; Created: 2014-01-26
 ;; Contact: marcowahlsoft()gmail.com
-
+;;
+;;
 ;; Activation:
 ;;
 ;; Activate this program by loading it into Emacs and evaluate it with
@@ -44,9 +45,9 @@
 ;; M-x eshot-snap-frame
 ;;
 ;; It might be a good idea to activate the function by a key.
-;; You could define F6 to trigger the function-call with
+;; You could define the print key to trigger the function-call with
 ;;
-;; M-x eval-expression (global-set-key (kbd "<f6>") 'eshot-snap-frame)
+;; M-x eval-expression (global-set-key (kbd "<print>") 'eshot-snap-frame)
 ;;
 ;;
 ;; Precondition:
@@ -54,7 +55,7 @@
 ;; 1. Emacs is running under X.
 ;;
 ;; 2. The program 'convert' of the ImageMagic-suite is available.
-;; 'convert' actually creates the snapshots.
+;; 'convert' is the program that actually creates the snapshots.
 
 
 (defcustom eshot-snap-frame-filename "~/emacs-frame-snap.png"
