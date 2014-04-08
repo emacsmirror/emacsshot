@@ -56,7 +56,13 @@
 ;;
 ;; 2. The program 'convert' of the ImageMagic-suite is available.
 ;; 'convert' is the program that actually creates the snapshots.
-
+;;
+;;
+;; Hints:
+;;
+;; There is elpa-package screenshot which allows to pick a window to
+;; be shot with the mouse.
+;;
 
 (defcustom eshot-snap-frame-filename "~/emacsshot.png"
   "Filename under which to store the next frame-snap.")
