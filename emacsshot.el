@@ -91,6 +91,27 @@ snapped."
     (expand-file-name eshot-snap-frame-filename))))
 
 
+(defun eshot-snap-window ()
+  (interactive)
+  (let ((filename
+         (expand-file-name
+          eshot-snap-window-filename)))
+    (call-process
+     "convert"
+     nil (get-buffer-create "*convert-output*") nil
+     (format
+      "x:%s[%dx%d+%d+%d]"
+      (frame-parameter nil 'window-id)
+      (window-pixel-width)
+      (window-pixel-height)
+      (nth 0 (window-inside-pixel-edges))
+      (nth 1 (window-inside-pixel-edges)))
+     filename)
+    (message
+     (concat
+      "Written file " filename))))
+
+
 (provide 'emacsshot)
 
 ;; emacsshot.el ends here.
