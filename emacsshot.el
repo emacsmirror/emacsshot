@@ -40,7 +40,7 @@
 ;; to your emacs-configuration-file.
 ;;
 ;; Optional: Set a filename for the snapshot-image.  This is the value
-;; of variable `eshot-snap-frame-filename'.  You can customize it via
+;; of variable `emacsshot-snap-frame-filename'.  You can customize it via
 ;;
 ;; M-x customize-variable
 ;;
@@ -49,17 +49,17 @@
 ;; 
 ;; Create a snapshot of the current Emacs-frame with
 ;;
-;; M-x eshot-snap-frame
+;; M-x emacsshot-snap-frame
 ;; 
 ;; Create a snapshot of the current Emacs-window with
 ;;
-;; M-x eshot-snap-window
+;; M-x emacsshot-snap-window
 ;;
 ;; It might be a good idea to set the functions to a key in order to
-;; avoid images which contain the string "M-x eshot-snap-frame" in the
+;; avoid images which contain the string "M-x emacsshot-snap-frame" in the
 ;; mode-line.  Heisenshot?  E.g. the print-key could trigger the shot
 ;;
-;; M-x eval-expression (global-set-key (kbd "<print>") 'eshot-snap-frame)
+;; M-x eval-expression (global-set-key (kbd "<print>") 'emacsshot-snap-frame)
 ;;
 ;;
 ;; Precondition:
@@ -81,23 +81,23 @@
 
 ;;; Code:
 
-(defcustom eshot-snap-frame-filename "~/emacsshot.png"
+(defcustom emacsshot-snap-frame-filename "~/emacsshot.png"
   "Filename under which to store the next frame-snap.")
 
-(defcustom eshot-snap-window-filename "~/emacsshot.png"
+(defcustom emacsshot-snap-window-filename "~/emacsshot.png"
   "Filename under which to store the next window-snap.")
 
 
-(defun eshot-snap-frame ()
+(defun emacsshot-snap-frame ()
   "Save an image of the current Emacs-frame.
 
 The image is stored with the name defined in
-`eshot-snap-frame-filename'.  There is no check against
+`emacsshot-snap-frame-filename'.  There is no check against
 overriding."
   (interactive)
   (let ((filename
          (expand-file-name
-          eshot-snap-frame-filename)))
+          emacsshot-snap-frame-filename)))
     (call-process
      "convert"
      nil (get-buffer-create "*convert-output*") nil
@@ -108,16 +108,16 @@ overriding."
     (message (concat "Written file " filename))))
 
 
-(defun eshot-snap-window ()
+(defun emacsshot-snap-window ()
   "Save an image of the current window.
 
 The image is stored with the name defined in
-`eshot-snap-window-filename'.  There is no check against
+`emacsshot-snap-window-filename'.  There is no check against
 overriding."
   (interactive)
   (let ((filename
          (expand-file-name
-          eshot-snap-window-filename)))
+          emacsshot-snap-window-filename)))
     (call-process
      "convert"
      nil (get-buffer-create "*convert-output*") nil
