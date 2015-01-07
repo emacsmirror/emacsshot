@@ -95,18 +95,25 @@ The image is stored with the name defined in
 `eshot-snap-frame-filename'.  There is no check against
 overriding."
   (interactive)
-  (call-process
-   "convert"
-   nil (get-buffer-create "*convert-output*") nil
-   (format "x:%s" (frame-parameter nil 'outer-window-id))
-   (expand-file-name eshot-snap-frame-filename))
-  (message
-   (concat
-    "Written file "
-    (expand-file-name eshot-snap-frame-filename))))
+  (let ((filename
+         (expand-file-name
+          eshot-snap-frame-filename)))
+    (call-process
+     "convert"
+     nil (get-buffer-create "*convert-output*") nil
+     (format
+      "x:%s"
+      (frame-parameter nil 'outer-window-id))
+     filename)
+    (message (concat "Written file " filename))))
 
 
 (defun eshot-snap-window ()
+  "Save an image of the current window.
+
+The image is stored with the name defined in
+`eshot-snap-window-filename'.  There is no check against
+overriding."
   (interactive)
   (let ((filename
          (expand-file-name
@@ -122,9 +129,7 @@ overriding."
       (nth 0 (window-inside-pixel-edges))
       (nth 1 (window-inside-pixel-edges)))
      filename)
-    (message
-     (concat
-      "Written file " filename))))
+    (message (concat "Written file " filename))))
 
 
 (provide 'emacsshot)
