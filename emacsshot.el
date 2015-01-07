@@ -1,9 +1,8 @@
-;;; emacsshot.el -- Snapshot an Emacs-frame from within emacs
+;;; emacsshot.el -- Take an image of a frame or window from within emacs
 
-;; Copyright 2014 Marco Wahl
+;; Copyright 2014-2015 Marco Wahl
 
-;; Keywords: screenshot
-
+
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -17,10 +16,15 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-;; Version: 0.1
+
+;; Author: Marco Wahl <marcowahlsoft@gmail.com>
+;; Maintainer: Marco Wahl
+;; Version: 0.2
 ;; Created: 2014-01-26
-;; Contact: marcowahlsoft()gmail.com
+;; Keywords: screenshot, convenience
 
+
+;;; Commentary:
 
 ;; Activation:
 ;;
@@ -46,9 +50,14 @@
 ;; Create a snapshot of the current Emacs-frame with
 ;;
 ;; M-x eshot-snap-frame
+;; 
+;; Create a snapshot of the current Emacs-window with
 ;;
-;; It might be a good idea to set the function to a key in order to
-;; avoid Heisenshots.  E.g. the print-key could trigger the shot
+;; M-x eshot-snap-window
+;;
+;; It might be a good idea to set the functions to a key in order to
+;; avoid images which contain the string "M-x eshot-snap-frame" in the
+;; mode-line.  Heisenshot?  E.g. the print-key could trigger the shot
 ;;
 ;; M-x eval-expression (global-set-key (kbd "<print>") 'eshot-snap-frame)
 ;;
@@ -66,9 +75,17 @@
 ;; There is elpa-package screenshot which allows to pick a window to
 ;; be shot with the mouse.
 ;;
+
+;;; Change Log:
+;; 201501071941 New function to take snapshot of a window.
+
+;;; Code:
 
 (defcustom eshot-snap-frame-filename "~/emacsshot.png"
   "Filename under which to store the next frame-snap.")
+
+(defcustom eshot-snap-window-filename "~/emacsshot.png"
+  "Filename under which to store the next window-snap.")
 
 
 (defun eshot-snap-frame ()
@@ -76,13 +93,11 @@
 
 The image is stored with the name defined in
 `eshot-snap-frame-filename'.  There is no check against
-overriding.
-
-The window-decoration due to the window-manager gets not
-snapped."
+overriding."
   (interactive)
   (call-process
-   "convert" nil (get-buffer-create "*convert-output*") nil
+   "convert"
+   nil (get-buffer-create "*convert-output*") nil
    (format "x:%s" (frame-parameter nil 'outer-window-id))
    (expand-file-name eshot-snap-frame-filename))
   (message
@@ -114,4 +129,4 @@ snapped."
 
 (provide 'emacsshot)
 
-;; emacsshot.el ends here.
+;;; emacsshot.el ends here
