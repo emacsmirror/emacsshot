@@ -126,8 +126,8 @@ overriding."
       (frame-parameter nil 'window-id)
       (window-pixel-width)
       (window-pixel-height)
-      (nth 0 (window-inside-pixel-edges))
-      (nth 1 (window-inside-pixel-edges)))
+      (nth 0 (window-pixel-edges))
+      (nth 1 (window-pixel-edges)))
      filename)
     (message (concat "Written file " filename))))
 
