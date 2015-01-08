@@ -79,8 +79,11 @@
 
 ;; ** Hints
 
-;; There is elpa-package 'screenshot' which allows to pick a window to
-;; be shot with the mouse.
+;; There is elpa-package 'screenshot' which allows to pick windows
+;; with the mouse, even windows from non-Emacs (!) programs.
+;; BTW 'screenshot' has even more!
+
+;; emacsshot only takes images of Emacs.
 
 ;;; History:
 
