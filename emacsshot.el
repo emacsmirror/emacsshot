@@ -1,8 +1,18 @@
-;;; emacsshot.el -- Take an image of a frame or window from within emacs
+;;; emacsshot.el --- Snapshot a frame or window from within Emacs
 
+;;; Header:
+;; 
 ;; Copyright 2014-2015 Marco Wahl
+;;  
+;; Author: Marco Wahl <marcowahlsoft@gmail.com>
+;; Maintainer: Marco Wahl
+;; Version: 0.2
+;; Created: 2014-01-26
+;; Keywords: convenience
+;; URL: https://github.com/marcowahl/emacsshot
 
-
+;; This file is not part of Emacs.
+
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -16,78 +26,84 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-;; Author: Marco Wahl <marcowahlsoft@gmail.com>
-;; Maintainer: Marco Wahl
-;; Version: 0.2
-;; Created: 2014-01-26
-;; Keywords: screenshot, convenience
-
-
 ;;; Commentary:
 
-;; Activation:
-;;
+;; ** What emacsshot is
+
+;; Program emacsshot provides two functions to take a snapshot of Emacs.
+
+;; ** Usage
+
+;; M-x emacsshot-snap-frame creates file '~/emacsshot.png' which is a
+;; snapshot of the current Emacs-frame.
+
+;; M-x emacsshot-snap-window creates file '~/emacsshot.png' which is a
+;; snapshot of the current Emacs-window.
+
+;; The filename is configurable.  Hint: M-x customize-group emacsshot.
+
+;; It might be a good idea to set function emacsshot-snap-frame to a key
+;; in order to avoid images which contain the string "M-x
+;; emacsshot-snap-frame" in the mode-line.  (Heisenshot?)
+
+;; The print-key could trigger the shot.  E.g.
+
+;; (global-set-key (kbd "<print>") 'emacsshot-snap-frame)
+
+;; ** Activation
+
+;; *** Emacs Package
+
+;; When emacsshot has been installed as elpa-package then the
+;; functionality is available without need of further action.
+
+;; *** More direct
+
 ;; Activate this program by loading it into Emacs and evaluate it with
-;;
+;;  
 ;; M-x eval-buffer
-;;
-;; Optional: Automatically activate this program by adding the lines
-;;
+;;  
+;; Automatically activate this program at Emacs start by adding the lines
+;;  
 ;; (add-to-list 'load-path "/...path to this program...")
 ;; (require 'emacsshot)
-;;
-;; to your emacs-configuration-file.
-;;
-;; Optional: Set a filename for the snapshot-image.  This is the value
-;; of variable `emacsshot-snap-frame-filename'.  You can customize it via
-;;
-;; M-x customize-variable
-;;
-;; 
-;; Action:
-;; 
-;; Create a snapshot of the current Emacs-frame with
-;;
-;; M-x emacsshot-snap-frame
-;; 
-;; Create a snapshot of the current Emacs-window with
-;;
-;; M-x emacsshot-snap-window
-;;
-;; It might be a good idea to set the functions to a key in order to
-;; avoid images which contain the string "M-x emacsshot-snap-frame" in the
-;; mode-line.  Heisenshot?  E.g. the print-key could trigger the shot
-;;
-;; M-x eval-expression (global-set-key (kbd "<print>") 'emacsshot-snap-frame)
-;;
-;;
-;; Precondition:
-;;
+
+;; to your .emacs or whatever you use for Emacs intitialization.
+
+;; ** Dependencies
+
 ;; 1. Emacs is running under X.
-;;
+
 ;; 2. The program 'convert' of the ImageMagic-suite is available.
 ;; 'convert' is the program that actually creates the snapshots.
-;;
-;;
-;; Hints:
-;;
-;; There is elpa-package screenshot which allows to pick a window to
-;; be shot with the mouse.
-;;
 
-;;; Change Log:
+;; ** Hints
+
+;; There is elpa-package 'screenshot' which allows to pick a window to
+;; be shot with the mouse.
+
+;;; History:
+
 ;; 201501071941 New function to take snapshot of a window.
 
 ;;; Code:
-
+
+;; ** Configuration
+
+;; #+BEGIN_SRC emacs-lisp
 (defcustom emacsshot-snap-frame-filename "~/emacsshot.png"
-  "Filename under which to store the next frame-snap.")
+  "Filename under which to store the next frame-snap."
+  :group 'emacsshot)
 
 (defcustom emacsshot-snap-window-filename "~/emacsshot.png"
-  "Filename under which to store the next window-snap.")
+  "Filename under which to store the next window-snap."
+  :group 'emacsshot)
+;; #+END_SRC
 
-
+;; ** Snapshot Functions
+
+;; #+BEGIN_SRC emacs-lisp
+;;;###autoload
 (defun emacsshot-snap-frame ()
   "Save an image of the current Emacs-frame.
 
@@ -107,7 +123,7 @@ overriding."
      filename)
     (message (concat "Written file " filename))))
 
-
+;;;###autoload
 (defun emacsshot-snap-window ()
   "Save an image of the current window.
 
@@ -131,7 +147,11 @@ overriding."
      filename)
     (message (concat "Written file " filename))))
 
-
 (provide 'emacsshot)
 
 ;;; emacsshot.el ends here
+;; #+END_SRC
+
+;; # Local Variables:
+;; # lentic-init: lentic-orgel-org-init
+;; # End:
