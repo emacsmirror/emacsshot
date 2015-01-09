@@ -1,7 +1,7 @@
 ;;; emacsshot.el --- Snapshot a frame or window from within Emacs
 
 ;;; Header:
-;; 
+
 ;; Copyright 2014-2015 Marco Wahl
 ;;  
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
@@ -49,6 +49,17 @@
 ;; The print-key could trigger the shot.  E.g.
 
 ;; (global-set-key (kbd "<print>") 'emacsshot-snap-frame)
+
+;; Or evaluate
+
+;; (global-set-key (kbd "<print>")
+;;  (lambda (&optional current-window)
+;;   (interactive "P")
+;;   (if current-window (emacsshot-snap-window)
+;;     (emacsshot-snap-frame))))
+
+;; to snap the frame and the current window by using the prefix
+;; argument C-u.
 
 ;; ** Activation
 
