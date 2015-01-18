@@ -27,10 +27,10 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-
 ;; ** What emacsshot is
 
-;; Program emacsshot provides two functions to take a snapshot of Emacs.
+;; Program emacsshot provides two functions to take a screenshot of Emacs
+;; from within Emacs.
 
 ;; ** Usage
 
@@ -61,12 +61,11 @@
 ;; to snap the frame and the current window by using the prefix
 ;; argument C-u.
 
-;; ** Activation
-
+;; ** Install
 ;; *** Emacs Package
 
-;; When emacsshot has been installed as elpa-package then the
-;; functionality is available without need of further action.
+;; When emacsshot has been installed as elpa-package then the functions
+;; are available without need of further action.
 
 ;; *** More direct
 
