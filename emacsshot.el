@@ -85,7 +85,7 @@
 
 ;; 1. Emacs is running under X.
 
-;; 2. The program 'convert' of the ImageMagic-suite is available.
+;; 2. The program 'convert' of the ImageMagick-suite is available.
 ;; 'convert' is the program that actually creates the snapshots.
 
 ;; ** Hints
