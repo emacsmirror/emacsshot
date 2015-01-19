@@ -34,13 +34,13 @@
 
 ;; ** Usage
 
-;; M-x emacsshot-snap-frame creates file '~/emacsshot.png' which is a
+;; =M-x emacsshot-snap-frame= creates file '~/emacsshot.png' which is a
 ;; snapshot of the current Emacs-frame.
 
-;; M-x emacsshot-snap-window creates file '~/emacsshot.png' which is a
+;; =M-x emacsshot-snap-window= creates file '~/emacsshot.png' which is a
 ;; snapshot of the current Emacs-window.
 
-;; The filename is configurable.  Hint: M-x customize-group emacsshot.
+;; The filenames are configurable.  Hint: =M-x customize-group emacsshot=.
 
 ;; It might be a good idea to set function emacsshot-snap-frame to a key
 ;; in order to avoid images which contain the string "M-x
@@ -74,13 +74,14 @@
 ;; *** More direct
 
 ;; Activate this program by loading it into Emacs and evaluate it with
-;;  
-;; M-x eval-buffer
-;;  
+;; =M-x eval-buffer=.
+
 ;; Automatically activate this program at Emacs start by adding the lines
-;;  
+
+;; #+BEGIN_EXAMPLE
 ;; (add-to-list 'load-path "/...path to this program...")
 ;; (require 'emacsshot)
+;; #+END_EXAMPLE 
 
 ;; to your .emacs or whatever you use for Emacs intitialization.
 
