@@ -48,11 +48,11 @@
 
 ;; The print-key could trigger the shot.  E.g.
 
-;; (global-set-key (kbd "<print>") 'emacsshot-snap-frame)
+;; (global-set-key [print] 'emacsshot-snap-frame)
 
 ;; Or evaluate
 
-;; (global-set-key (kbd "<print>")
+;; (global-set-key [print]
 ;;  (lambda (&optional current-window)
 ;;   (interactive "P")
 ;;   (if current-window (emacsshot-snap-window)
