@@ -32,13 +32,17 @@ snapshot of the current Emacs-window.
 
 The filenames are configurable.  Hint: `M-x customize-group emacsshot`.
 
-It might be a good idea to set function emacsshot-snap-frame to a key
-in order to avoid images which contain the string "M-x
-emacsshot-snap-frame" in the mode-line.  (Heisenshot?)
+It might be a good idea to bind the functions to a key.  This can make
+the usage more convenient.  Further the binding is a way to avoid
+images which contain the command that has been used to create the
+image e.g. "M-x emacsshot-snap-frame" in the mode-line.  Beware of the
+heisenshot!
 
-The print-key could trigger the shot.  E.g.
+Concretely the print-key could trigger the shot.  Evaluation of
 
     (global-set-key [print] 'emacsshot-snap-frame)
+
+yields this behavior.
 
 Or evaluate
 
@@ -48,8 +52,8 @@ Or evaluate
       (if current-window (emacsshot-snap-window)
         (emacsshot-snap-frame))))
 
-to snap the frame and the current window by using the prefix
-argument C-u.
+to be able to snap the frame by pressing the print-key and to snap the
+current window by prefixing the keypress with C-u.
 
 # Install<a id="sec-3"></a>
 
