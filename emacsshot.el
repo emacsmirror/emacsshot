@@ -72,7 +72,8 @@
 ;; ** Install
 ;; *** Emacs Package
 
-;; When emacsshot has been installed as elpa-package then the functions
+;; When emacsshot has been installed as elpa-package
+;; [[http://melpa.org/#/emacsshot][file:http://melpa.org/packages/emacsshot-badge.svg]] then the functions
 ;; are available without need of further action.
 
 ;; *** More direct
