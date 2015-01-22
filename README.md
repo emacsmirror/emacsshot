@@ -12,6 +12,7 @@
 </li>
 <li><a href="#sec-4">4. Dependencies</a></li>
 <li><a href="#sec-5">5. Hints</a></li>
+<li><a href="#sec-6">6. History</a></li>
 </ul>
 </div>
 </div>
@@ -80,7 +81,11 @@ to your .emacs or whatever you use for Emacs intitialization.
 # Hints<a id="sec-5"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
-with the mouse, even windows from non-Emacs (!) programs.
-BTW 'screenshot' has even more!
+with the mouse, even windows from non-Emacs (!) programs.  See
+<http://melpa.org/#/screenshot>.  BTW 'screenshot' has even more!
 
 emacsshot only takes images of Emacs.
+
+# History<a id="sec-6"></a>
+
+201501071941 New function to take snapshot of a window.
