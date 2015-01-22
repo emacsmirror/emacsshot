@@ -108,6 +108,11 @@
 
 ;; 201501071941 New function to take snapshot of a window.
 
+;; ** Communication
+
+;; Please use the infrastructure of github for communication.  See
+;; https://github.com/marcowahl/emacsshot/issues.
+
 ;;; Code:
 
 ;; ** Configuration
