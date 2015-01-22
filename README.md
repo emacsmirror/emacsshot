@@ -13,6 +13,7 @@
 <li><a href="#sec-4">4. Dependencies</a></li>
 <li><a href="#sec-5">5. Hints</a></li>
 <li><a href="#sec-6">6. History</a></li>
+<li><a href="#sec-7">7. Communication</a></li>
 </ul>
 </div>
 </div>
@@ -59,7 +60,8 @@ current window by prefixing the keypress with C-u.
 
 ## Emacs Package<a id="sec-3-1"></a>
 
-When emacsshot has been installed as elpa-package then the functions
+When emacsshot has been installed as elpa-package
+[![img](http://melpa.org/packages/emacsshot-badge.svg)](http://melpa.org/#/emacsshot) then the functions
 are available without need of further action.
 
 ## More direct<a id="sec-3-2"></a>
@@ -93,3 +95,8 @@ emacsshot only takes images of Emacs.
 # History<a id="sec-6"></a>
 
 201501071941 New function to take snapshot of a window.
+
+# Communication<a id="sec-7"></a>
+
+Please use the infrastructure of github for communication.  See
+<https://github.com/marcowahl/emacsshot/issues>.
