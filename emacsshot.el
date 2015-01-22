@@ -100,7 +100,7 @@
 
 ;; emacsshot only takes images of Emacs.
 
-;;; History:
+;; ** History
 
 ;; 201501071941 New function to take snapshot of a window.
 
