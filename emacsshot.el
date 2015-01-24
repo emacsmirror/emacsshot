@@ -92,10 +92,36 @@
 
 ;; ** Dependencies
 
-;; 1. Emacs is running under X.
+;; - Emacs is running under X.
+;; - The programm =convert= of the ImageMagick-suite is available.
 
-;; 2. The program 'convert' of the ImageMagick-suite is available.
-;; 'convert' is the program that actually creates the snapshots.
+;; =convert= actually creates the snapshots.
+
+;; ** Development
+
+;; *** Lentic Literate Style
+
+;; This program is written in emacs lisp in lentic style based on the
+;; 'lentic' package [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
+
+;; This means the that this file can be regarded just as an emacs lisp
+;; file.  But actually this file contains extra comments which allow the
+;; interpretation of the file as Org file.  Lentic-mode makes it easy to
+;; write this style.
+
+;; A possible initialization of lentic is this:
+
+;; #+BEGIN_EXAMPLE
+;; (global-lentic-start-mode)
+;; #+END_EXAMPLE
+
+;; Find more about lentic at
+;; [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
+
+;; ** Communication
+
+;; Please use the infrastructure of github for communication.  See
+;; https://github.com/marcowahl/emacsshot/issues.
 
 ;; ** Hints
 
@@ -107,15 +133,9 @@
 
 ;; ** History
 
-;; 201501071941 New function to take snapshot of a window.
-
-;; ** Communication
-
-;; Please use the infrastructure of github for communication.  See
-;; https://github.com/marcowahl/emacsshot/issues.
+;; | 201501071941 | New function to take snapshot of a window |
 
 ;;; Code:
-
 ;; ** Configuration
 
 ;; #+BEGIN_SRC emacs-lisp
