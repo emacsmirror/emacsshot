@@ -177,9 +177,12 @@ overriding."
 
 (provide 'emacsshot)
 
-;;; emacsshot.el ends here
 ;; #+END_SRC
+
+;;; Tail:
 
 ;; # Local Variables:
 ;; # lentic-init: lentic-orgel-org-init
 ;; # End:
+
+;;; emacsshot.el ends here
