@@ -11,9 +11,14 @@
 </ul>
 </li>
 <li><a href="#sec-4">4. Dependencies</a></li>
-<li><a href="#sec-5">5. Hints</a></li>
-<li><a href="#sec-6">6. History</a></li>
-<li><a href="#sec-7">7. Communication</a></li>
+<li><a href="#sec-5">5. Development</a>
+<ul>
+<li><a href="#sec-5-1">5.1. Lentic Literate Style</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Communication</a></li>
+<li><a href="#sec-7">7. Hints</a></li>
+<li><a href="#sec-8">8. History</a></li>
 </ul>
 </div>
 </div>
@@ -78,13 +83,36 @@ to your .emacs or whatever you use for Emacs intitialization.
 
 # Dependencies<a id="sec-4"></a>
 
-1.  Emacs is running under X.
+-   Emacs is running under X.
+-   The programm `convert` of the ImageMagick-suite is available.
 
-2.  The program 'convert' of the ImageMagick-suite is available.
+`convert` actually creates the snapshots.
 
-'convert' is the program that actually creates the snapshots.
+# Development<a id="sec-5"></a>
 
-# Hints<a id="sec-5"></a>
+## Lentic Literate Style<a id="sec-5-1"></a>
+
+This program is written in emacs lisp in lentic style based on the
+'lentic' package [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
+
+This means the that this file can be regarded just as an emacs lisp
+file.  But actually this file contains extra comments which allow the
+interpretation of the file as Org file.  Lentic-mode makes it easy to
+write this style.
+
+A possible initialization of lentic is this:
+
+    (global-lentic-start-mode)
+
+Find more about lentic at
+[![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
+
+# Communication<a id="sec-6"></a>
+
+Please use the infrastructure of github for communication.  See
+<https://github.com/marcowahl/emacsshot/issues>.
+
+# Hints<a id="sec-7"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
 with the mouse, even windows from non-Emacs (!) programs.  See
@@ -92,11 +120,20 @@ with the mouse, even windows from non-Emacs (!) programs.  See
 
 emacsshot only takes images of Emacs.
 
-# History<a id="sec-6"></a>
+# History<a id="sec-8"></a>
 
-201501071941 New function to take snapshot of a window.
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-# Communication<a id="sec-7"></a>
 
-Please use the infrastructure of github for communication.  See
-<https://github.com/marcowahl/emacsshot/issues>.
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="right">201501071941</td>
+<td class="left">New function to take snapshot of a window</td>
+</tr>
+</tbody>
+</table>
