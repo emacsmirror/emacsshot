@@ -69,6 +69,9 @@
 ;; to be able to snap the frame by pressing the print-key and to snap the
 ;; current window by prefixing the keypress with C-u.
 
+;; Note that emacsshot currently trys to overwrite any existing file with
+;; the target name without asking.
+
 ;; ** Install
 ;; *** Emacs Package
 
