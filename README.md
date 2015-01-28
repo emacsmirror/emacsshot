@@ -14,11 +14,11 @@
 <li><a href="#sec-5">5. Development</a>
 <ul>
 <li><a href="#sec-5-1">5.1. Lentic Literate Style</a></li>
+<li><a href="#sec-5-2">5.2. Ideas, Contributions, Bugs</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. Communication</a></li>
-<li><a href="#sec-7">7. Hints</a></li>
-<li><a href="#sec-8">8. History</a></li>
+<li><a href="#sec-6">6. Hints</a></li>
+<li><a href="#sec-7">7. History</a></li>
 </ul>
 </div>
 </div>
@@ -60,6 +60,9 @@ Or evaluate
 
 to be able to snap the frame by pressing the print-key and to snap the
 current window by prefixing the keypress with C-u.
+
+Note that emacsshot currently trys to overwrite any existing file with
+the target name without asking.
 
 # Install<a id="sec-3"></a>
 
@@ -107,12 +110,14 @@ A possible initialization of lentic is this:
 Find more about lentic at
 [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
 
-# Communication<a id="sec-6"></a>
+## Ideas, Contributions, Bugs<a id="sec-5-2"></a>
+
+Contributions, ideas and bug-reports are welcome.
 
 Please use the infrastructure of github for communication.  See
 <https://github.com/marcowahl/emacsshot/issues>.
 
-# Hints<a id="sec-7"></a>
+# Hints<a id="sec-6"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
 with the mouse, even windows from non-Emacs (!) programs.  See
@@ -120,7 +125,7 @@ with the mouse, even windows from non-Emacs (!) programs.  See
 
 emacsshot only takes images of Emacs.
 
-# History<a id="sec-8"></a>
+# History<a id="sec-7"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
