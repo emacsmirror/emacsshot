@@ -101,7 +101,6 @@
 ;; =convert= actually creates the snapshots.
 
 ;; ** Development
-
 ;; *** Lentic Literate Style
 
 ;; This program is written in emacs lisp in lentic style based on the
@@ -121,7 +120,9 @@
 ;; Find more about lentic at
 ;; [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
 
-;; ** Communication
+;; *** Ideas, Contributions, Bugs
+
+;; Contributions, ideas and bug-reports are welcome.
 
 ;; Please use the infrastructure of github for communication.  See
 ;; https://github.com/marcowahl/emacsshot/issues.
