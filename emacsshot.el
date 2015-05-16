@@ -34,13 +34,16 @@
 
 ;; ** Usage
 
-;; =M-x emacsshot-snap-frame= creates file '~/emacsshot.png' which is a
-;; snapshot of the current Emacs-frame.
+;; With the default settings =M-x emacsshot-snap-frame= creates file
+;; '~/emacsshot.png' which is a snapshot of the current Emacs-frame.
 
-;; =M-x emacsshot-snap-window= creates file '~/emacsshot.png' which is a
-;; snapshot of the current Emacs-window.
+;; Further =M-x emacsshot-snap-window= creates file '~/emacsshot.png'
+;; which is a snapshot of the current Emacs-window.
 
 ;; The filenames are configurable.  Hint: =M-x customize-group emacsshot=.
+
+;; It's also possible to add a timestamp to the filename as postfix.  See
+;; =M-x customize-variable emacsshot-with-timestamp=.
 
 ;; It might be a good idea to bind the functions to a key.  This can make
 ;; the usage more convenient.  Further the binding is a way to avoid
@@ -144,12 +147,31 @@
 
 ;; #+BEGIN_SRC emacs-lisp
 (defcustom emacsshot-snap-frame-filename "~/emacsshot.png"
-  "Filename under which to store the next frame-snap."
+  "Filename under which to store the next frame-snap. A
+timestamp may be added."
   :group 'emacsshot)
 
 (defcustom emacsshot-snap-window-filename "~/emacsshot.png"
-  "Filename under which to store the next window-snap."
+  "Filename under which to store the next window-snap. A
+timestamp may be added."
   :group 'emacsshot)
+
+(defcustom emacsshot-with-timestamp nil
+  "When t add current timestamp to the filename."
+  :group 'emacsshot)
+;; #+END_SRC
+
+;; ** Auxilliary Function
+
+;; #+BEGIN_SRC emacs-lisp
+(defun emacsshot-enhance-filename-with-timestamp (filename)
+  (concat
+   (or (file-name-sans-extension filename) "")
+   "-"
+   (format-time-string "%Y%m%d%H%M%S")
+   (if (file-name-extension filename)
+       (concat  "." (file-name-extension filename))
+     "")))
 ;; #+END_SRC
 
 ;; ** Snapshot Functions
@@ -159,45 +181,53 @@
 (defun emacsshot-snap-frame ()
   "Save an image of the current Emacs-frame.
 
-The image is stored with the name defined in
-`emacsshot-snap-frame-filename'.  There is no check against
-overriding."
+  The image is stored with the name defined in
+  `emacsshot-snap-frame-filename'.  There is no check against
+  overriding."
   (interactive)
   (let ((filename
          (expand-file-name
-          emacsshot-snap-frame-filename)))
-    (call-process
-     "convert"
-     nil (get-buffer-create "*convert-output*") nil
-     (format
-      "x:%s"
-      (frame-parameter nil 'outer-window-id))
-     filename)
-    (message (concat "Written file " filename))))
+          (if emacsshot-with-timestamp
+              (emacsshot-enhance-filename-with-timestamp
+               emacsshot-snap-frame-filename)
+            emacsshot-snap-frame-filename))))
+    (if (= 0 (call-process
+              "convert"
+              nil (get-buffer-create "*convert-output*") nil
+              (format
+               "x:%s"
+               (frame-parameter nil 'outer-window-id))
+              filename))
+        (message (concat "Written file " filename))
+      (error (concat "Could not write file " filename)))))
 
 ;;;###autoload
 (defun emacsshot-snap-window ()
   "Save an image of the current window.
 
-The image is stored with the name defined in
-`emacsshot-snap-window-filename'.  There is no check against
-overriding."
+  The image is stored with the name defined in
+  `emacsshot-snap-window-filename'.  There is no check against
+  overriding."
   (interactive)
   (let ((filename
          (expand-file-name
-          emacsshot-snap-window-filename)))
-    (call-process
-     "convert"
-     nil (get-buffer-create "*convert-output*") nil
-     (format
-      "x:%s[%dx%d+%d+%d]"
-      (frame-parameter nil 'window-id)
-      (window-pixel-width)
-      (window-pixel-height)
-      (nth 0 (window-pixel-edges))
-      (nth 1 (window-pixel-edges)))
-     filename)
-    (message (concat "Written file " filename))))
+          (if emacsshot-with-timestamp
+              (emacsshot-enhance-filename-with-timestamp
+               emacsshot-snap-window-filename)
+            emacsshot-snap-window-filename))))
+    (if (= 0 (call-process
+              "convert"
+              nil (get-buffer-create "*convert-output*") nil
+              (format
+               "x:%s[%dx%d+%d+%d]"
+               (frame-parameter nil 'window-id)
+               (window-pixel-width)
+               (window-pixel-height)
+               (nth 0 (window-pixel-edges))
+               (nth 1 (window-pixel-edges)))
+              filename))
+        (message (concat "Written file " filename))
+      (error (concat "Could not write file " filename)))))
 
 (provide 'emacsshot)
 
@@ -209,4 +239,4 @@ overriding."
 ;; # lentic-init: lentic-orgel-org-init
 ;; # End:
 
-;;; emacsshot.el ends here
+;;; emacsshot:.el ends here
