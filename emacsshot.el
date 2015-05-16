@@ -26,7 +26,10 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-;;; Commentary:
+;;; Documentation:
+;;   :PROPERTIES:
+;;   :ID:       7351e8d6-758c-4561-a938-1f9912f19f69
+;;   :END:
 ;; ** What emacsshot is
 
 ;; Program emacsshot provides two functions to take a screenshot of Emacs
@@ -141,7 +144,8 @@
 ;; ** History
 
 ;; | 201501071941 | New function to take snapshot of a window |
-
+;; | 201505162319 | Optionally add timestamp to save-filename | 
+;;   
 ;;; Code:
 ;; ** Configuration
 
@@ -233,7 +237,11 @@ timestamp may be added."
 
 ;; #+END_SRC
 
-;;; Tail:
+;;; Rest:
+
+;; You can export section
+;; [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]] to get
+;; documentation.  E.g. a README.md suitable for github.
 
 ;; # Local Variables:
 ;; # lentic-init: lentic-orgel-org-init
