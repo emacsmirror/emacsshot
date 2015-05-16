@@ -2,41 +2,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. What emacsshot is</a></li>
-<li><a href="#sec-2">2. Usage</a></li>
-<li><a href="#sec-3">3. Install</a>
+<li><a href="#orgheadline1">1. What emacsshot is</a></li>
+<li><a href="#orgheadline2">2. Usage</a></li>
+<li><a href="#orgheadline5">3. Install</a>
 <ul>
-<li><a href="#sec-3-1">3.1. Emacs Package</a></li>
-<li><a href="#sec-3-2">3.2. More direct</a></li>
+<li><a href="#orgheadline3">3.1. Emacs Package</a></li>
+<li><a href="#orgheadline4">3.2. More direct</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. Dependencies</a></li>
-<li><a href="#sec-5">5. Development</a>
+<li><a href="#orgheadline6">4. Dependencies</a></li>
+<li><a href="#orgheadline9">5. Development</a>
 <ul>
-<li><a href="#sec-5-1">5.1. Lentic Literate Style</a></li>
-<li><a href="#sec-5-2">5.2. Ideas, Contributions, Bugs</a></li>
+<li><a href="#orgheadline7">5.1. Lentic Literate Style</a></li>
+<li><a href="#orgheadline8">5.2. Ideas, Contributions, Bugs</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. Hints</a></li>
-<li><a href="#sec-7">7. History</a></li>
+<li><a href="#orgheadline10">6. Hints</a></li>
+<li><a href="#orgheadline11">7. History</a></li>
 </ul>
 </div>
 </div>
 
-# What emacsshot is<a id="sec-1"></a>
+# What emacsshot is<a id="orgheadline1"></a>
 
 Program emacsshot provides two functions to take a screenshot of Emacs
 from within Emacs.
 
-# Usage<a id="sec-2"></a>
+# Usage<a id="orgheadline2"></a>
 
-`M-x emacsshot-snap-frame` creates file '~/emacsshot.png' which is a
-snapshot of the current Emacs-frame.
+With the default settings `M-x emacsshot-snap-frame` creates file
+'~/emacsshot.png' which is a snapshot of the current Emacs-frame.
 
-`M-x emacsshot-snap-window` creates file '~/emacsshot.png' which is a
-snapshot of the current Emacs-window.
+Further `M-x emacsshot-snap-window` creates file '~/emacsshot.png'
+which is a snapshot of the current Emacs-window.
 
 The filenames are configurable.  Hint: `M-x customize-group emacsshot`.
+
+It's also possible to add a timestamp to the filename as postfix.  See
+`M-x customize-variable emacsshot-with-timestamp`.
 
 It might be a good idea to bind the functions to a key.  This can make
 the usage more convenient.  Further the binding is a way to avoid
@@ -64,15 +67,15 @@ current window by prefixing the keypress with C-u.
 Note that emacsshot currently trys to overwrite any existing file with
 the target name without asking.
 
-# Install<a id="sec-3"></a>
+# Install<a id="orgheadline5"></a>
 
-## Emacs Package<a id="sec-3-1"></a>
+## Emacs Package<a id="orgheadline3"></a>
 
 When emacsshot has been installed as elpa-package
 [![img](http://melpa.org/packages/emacsshot-badge.svg)](http://melpa.org/#/emacsshot) then the functions
 are available without need of further action.
 
-## More direct<a id="sec-3-2"></a>
+## More direct<a id="orgheadline4"></a>
 
 Activate this program by loading it into Emacs and evaluate it with
 `M-x eval-buffer`.
@@ -84,16 +87,16 @@ Automatically activate this program at Emacs start by adding the lines
 
 to your .emacs or whatever you use for Emacs intitialization.
 
-# Dependencies<a id="sec-4"></a>
+# Dependencies<a id="orgheadline6"></a>
 
 -   Emacs is running under X.
 -   The programm `convert` of the ImageMagick-suite is available.
 
 `convert` actually creates the snapshots.
 
-# Development<a id="sec-5"></a>
+# Development<a id="orgheadline9"></a>
 
-## Lentic Literate Style<a id="sec-5-1"></a>
+## Lentic Literate Style<a id="orgheadline7"></a>
 
 This program is written in emacs lisp in lentic style based on the
 'lentic' package [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
@@ -110,14 +113,14 @@ A possible initialization of lentic is this:
 Find more about lentic at
 [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
 
-## Ideas, Contributions, Bugs<a id="sec-5-2"></a>
+## Ideas, Contributions, Bugs<a id="orgheadline8"></a>
 
 Contributions, ideas and bug-reports are welcome.
 
 Please use the infrastructure of github for communication.  See
 <https://github.com/marcowahl/emacsshot/issues>.
 
-# Hints<a id="sec-6"></a>
+# Hints<a id="orgheadline10"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
 with the mouse, even windows from non-Emacs (!) programs.  See
@@ -125,7 +128,7 @@ with the mouse, even windows from non-Emacs (!) programs.  See
 
 emacsshot only takes images of Emacs.
 
-# History<a id="sec-7"></a>
+# History<a id="orgheadline11"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -139,6 +142,12 @@ emacsshot only takes images of Emacs.
 <tr>
 <td class="right">201501071941</td>
 <td class="left">New function to take snapshot of a window</td>
+</tr>
+
+
+<tr>
+<td class="right">201505162319</td>
+<td class="left">Optionally add timestamp to save-filename</td>
 </tr>
 </tbody>
 </table>
