@@ -31,6 +31,7 @@
 ;;   :PROPERTIES:
 ;;   :ID:       7351e8d6-758c-4561-a938-1f9912f19f69
 ;;   :END:
+
 ;; ** What emacsshot is
 
 ;; Program emacsshot provides two functions to take a screenshot of Emacs
@@ -78,6 +79,12 @@
 
 ;; Note that emacsshot currently trys to overwrite any existing file with
 ;; the target name without asking.
+
+;; *** Hide the mode-line
+
+;; If you don't want the mode-line in your emacsshot you can switch it
+;; off with ~hidden-mode-line-mode~ from Bastien Guerry at
+;; http://bzg.fr/emacs-hide-mode-line.html.
 
 ;; ** Install
 ;; *** Emacs Package
@@ -148,6 +155,7 @@
 ;; | 201505162319 | Optionally add timestamp to save-filename |
 
 ;;; Code:
+
 ;; ** Configuration
 
 ;; #+BEGIN_SRC emacs-lisp
