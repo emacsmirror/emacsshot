@@ -48,11 +48,11 @@
 ;; It's also possible to add a timestamp to the filename as postfix.  See
 ;; =M-x customize-variable emacsshot-with-timestamp=.
 
-;; It might be a good idea to bind the functions to a key.  This can make
-;; the usage more convenient.  Further the binding is a way to avoid
-;; images which contain the command that has been used to create the
-;; image e.g. "M-x emacsshot-snap-frame" in the mode-line.  Beware of the
-;; heisenshot!
+;; It might be a good idea to bind the functions to a key.  This can
+;; make the usage more convenient.  Further the binding is a way to
+;; avoid images which contain the command that has been used to create
+;; the image e.g. "M-x emacsshot-snap-frame" in the minibuffer.
+;; Beware of the heisenshot!
 
 ;; Concretely the print-key could trigger the shot.  Evaluation of
 
