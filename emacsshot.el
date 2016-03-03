@@ -1,9 +1,10 @@
 ;;; emacsshot.el --- Snapshot a frame or window from within Emacs
+;; #+STARTUP: oddeven
 
 ;;; Header:
 
 ;; Copyright 2014-2016 Marco Wahl
-;;  
+
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
 ;; Maintainer: Marco Wahl
 ;; Version: 0.3
