@@ -37,6 +37,8 @@
 ;; Program emacsshot provides two functions to take a screenshot of Emacs
 ;; from within Emacs.
 
+;; [[./emacsshot.png]]
+
 ;; ** Usage
 
 ;; With the default settings =M-x emacsshot-snap-frame= creates file
@@ -83,7 +85,7 @@
 ;; *** Hide the mode-line
 
 ;; If you don't want the mode-line in your emacsshot you can switch it
-;; off with ~hidden-mode-line-mode~ from Bastien Guerry at
+;; off with ~hidden-mode-line-mode~ from Bastien Guerry available at
 ;; http://bzg.fr/emacs-hide-mode-line.html.
 
 ;; ** Install
@@ -93,7 +95,7 @@
 ;; [[http://melpa.org/#/emacsshot][file:http://melpa.org/packages/emacsshot-badge.svg]] then the functions
 ;; are available without need of further action.
 
-;; *** More direct
+;; *** Direct Install
 
 ;; Activate this program by loading it into Emacs and evaluate it with
 ;; =M-x eval-buffer=.

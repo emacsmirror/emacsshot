@@ -11,7 +11,7 @@
 <li><a href="#orgheadline6">3. Install</a>
 <ul>
 <li><a href="#orgheadline4">3.1. Emacs Package</a></li>
-<li><a href="#orgheadline5">3.2. More direct</a></li>
+<li><a href="#orgheadline5">3.2. Direct Install</a></li>
 </ul>
 </li>
 <li><a href="#orgheadline7">4. Dependencies</a></li>
@@ -31,6 +31,8 @@
 
 Program emacsshot provides two functions to take a screenshot of Emacs
 from within Emacs.
+
+![img](./emacsshot.png)
 
 # Usage<a id="orgheadline3"></a>
 
@@ -74,7 +76,7 @@ the target name without asking.
 ## Hide the mode-line<a id="orgheadline2"></a>
 
 If you don't want the mode-line in your emacsshot you can switch it
-off with `hidden-mode-line-mode` from Bastien Guerry at
+off with `hidden-mode-line-mode` from Bastien Guerry available at
 <http://bzg.fr/emacs-hide-mode-line.html>.
 
 # Install<a id="orgheadline6"></a>
@@ -85,7 +87,7 @@ When emacsshot has been installed as elpa-package
 [![img](http://melpa.org/packages/emacsshot-badge.svg)](http://melpa.org/#/emacsshot) then the functions
 are available without need of further action.
 
-## More direct<a id="orgheadline5"></a>
+## Direct Install<a id="orgheadline5"></a>
 
 Activate this program by loading it into Emacs and evaluate it with
 `M-x eval-buffer`.
