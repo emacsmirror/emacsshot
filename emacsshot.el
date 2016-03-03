@@ -96,7 +96,7 @@
 ;; #+BEGIN_EXAMPLE
 ;; (add-to-list 'load-path "/...path to this program...")
 ;; (require 'emacsshot)
-;; #+END_EXAMPLE 
+;; #+END_EXAMPLE
 
 ;; to your .emacs or whatever you use for Emacs intitialization.
 
@@ -145,8 +145,8 @@
 ;; ** History
 
 ;; | 201501071941 | New function to take snapshot of a window |
-;; | 201505162319 | Optionally add timestamp to save-filename | 
-;;   
+;; | 201505162319 | Optionally add timestamp to save-filename |
+
 ;;; Code:
 ;; ** Configuration
 
