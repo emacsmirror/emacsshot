@@ -2,45 +2,49 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. What emacsshot is</a></li>
-<li><a href="#orgheadline3">2. Usage</a>
+<li><a href="#org7e6e914">1. What emacsshot is</a></li>
+<li><a href="#org6c574b4">2. Usage</a>
 <ul>
-<li><a href="#orgheadline2">2.1. Hide the mode-line</a></li>
+<li><a href="#org27def47">2.1. Hide the mode-line</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline6">3. Install</a>
+<li><a href="#orgc9bff19">3. Install</a>
 <ul>
-<li><a href="#orgheadline4">3.1. Emacs Package</a></li>
-<li><a href="#orgheadline5">3.2. Direct Install</a></li>
+<li><a href="#org5f88b6e">3.1. Emacs Package</a></li>
+<li><a href="#orga9087f5">3.2. Direct Install</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline7">4. Dependencies</a></li>
-<li><a href="#orgheadline10">5. Development</a>
+<li><a href="#orgc7c9a7f">4. Dependencies</a></li>
+<li><a href="#org8684451">5. Development</a>
 <ul>
-<li><a href="#orgheadline8">5.1. Lentic Literate Style</a></li>
-<li><a href="#orgheadline9">5.2. Ideas, Contributions, Bugs</a></li>
+<li><a href="#org2c5d974">5.1. Lentic Literate Style</a></li>
+<li><a href="#org77fff21">5.2. Ideas, Contributions, Bugs</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline11">6. Hints</a></li>
-<li><a href="#orgheadline12">7. History</a></li>
+<li><a href="#org5502664">6. Hints</a></li>
+<li><a href="#org402a166">7. History</a></li>
 </ul>
 </div>
 </div>
 
-# What emacsshot is<a id="orgheadline1"></a>
+# What emacsshot is<a id="org7e6e914"></a>
 
-Program emacsshot provides two functions to take a screenshot of Emacs
-from within Emacs.
+Program emacsshot provides a few commands to take a screenshot of
+Emacs from within Emacs.
 
 ![img](./emacsshot.png)
 
-# Usage<a id="orgheadline3"></a>
+# Usage<a id="org6c574b4"></a>
 
 With the default settings `M-x emacsshot-snap-frame` creates file
 '~/emacsshot.png' which is a snapshot of the current Emacs-frame.
 
-Further `M-x emacsshot-snap-window` creates file '~/emacsshot.png'
-which is a snapshot of the current Emacs-window.
+There is also `M-x emacsshot-snap-window` which is for creating a
+snapshot of the current Emacs-window.
+
+Further there is function `emacsshot-snap-window-exclude-modeline`
+which does as `emacsshot-snap-window` but excludes the modeline when
+taking the shot.  See also section [Hide the mode-line](#org27def47).
 
 The filenames are configurable.  Hint: `M-x customize-group emacsshot`.
 
@@ -73,21 +77,21 @@ current window by prefixing the keypress with C-u.
 Note that emacsshot currently trys to overwrite any existing file with
 the target name without asking.
 
-## Hide the mode-line<a id="orgheadline2"></a>
+## Hide the mode-line<a id="org27def47"></a>
 
 If you don't want the mode-line in your emacsshot you can switch it
 off with `hidden-mode-line-mode` from Bastien Guerry available at
 <http://bzg.fr/emacs-hide-mode-line.html>.
 
-# Install<a id="orgheadline6"></a>
+# Install<a id="orgc9bff19"></a>
 
-## Emacs Package<a id="orgheadline4"></a>
+## Emacs Package<a id="org5f88b6e"></a>
 
 When emacsshot has been installed as elpa-package
 [![img](http://melpa.org/packages/emacsshot-badge.svg)](http://melpa.org/#/emacsshot) then the functions
 are available without need of further action.
 
-## Direct Install<a id="orgheadline5"></a>
+## Direct Install<a id="orga9087f5"></a>
 
 Activate this program by loading it into Emacs and evaluate it with
 `M-x eval-buffer`.
@@ -99,21 +103,21 @@ Automatically activate this program at Emacs start by adding the lines
 
 to your .emacs or whatever you use for Emacs intitialization.
 
-# Dependencies<a id="orgheadline7"></a>
+# Dependencies<a id="orgc7c9a7f"></a>
 
 -   Emacs is running under X.
 -   The programm `convert` of the ImageMagick-suite is available.
 
 `convert` actually creates the snapshots.
 
-# Development<a id="orgheadline10"></a>
+# Development<a id="org8684451"></a>
 
-## Lentic Literate Style<a id="orgheadline8"></a>
+## Lentic Literate Style<a id="org2c5d974"></a>
 
-This program is written in emacs lisp in lentic style based on the
+This program is written in Emacs Lisp in lentic style based on the
 'lentic' package [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
 
-This means the that this file can be regarded just as an emacs lisp
+This means the that this file can be regarded just as an Emacs Lisp
 file.  But actually this file contains extra comments which allow the
 interpretation of the file as Org file.  Lentic-mode makes it easy to
 write this style.
@@ -125,14 +129,14 @@ A possible initialization of lentic is this:
 Find more about lentic at
 [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
 
-## Ideas, Contributions, Bugs<a id="orgheadline9"></a>
+## Ideas, Contributions, Bugs<a id="org77fff21"></a>
 
 Contributions, ideas and bug-reports are welcome.
 
 Please use the infrastructure of github for communication.  See
 <https://github.com/marcowahl/emacsshot/issues>.
 
-# Hints<a id="orgheadline11"></a>
+# Hints<a id="org5502664"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
 with the mouse, even windows from non-Emacs (!) programs.  See
@@ -140,7 +144,7 @@ with the mouse, even windows from non-Emacs (!) programs.  See
 
 emacsshot only takes images of Emacs.
 
-# History<a id="orgheadline12"></a>
+# History<a id="org402a166"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
