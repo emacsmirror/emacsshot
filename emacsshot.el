@@ -37,9 +37,9 @@
 ;;   :ID:       7351e8d6-758c-4561-a938-1f9912f19f69
 ;;   :END:
 
-;; ** What emacsshot is
+;; ** What
 
-;; Program emacsshot provides a few commands to take a screenshot of
+;; =emacsshot= provides a few commands to take a screenshot of
 ;; Emacs from within Emacs.
 
 ;; [[./emacsshot.png]]
@@ -169,7 +169,7 @@
 ;; Please use the infrastructure of github for communication.  See
 ;; https://github.com/marcowahl/emacsshot/issues.
 
-;; ** Hints
+;; ** Related
 
 ;; There is elpa-package 'screenshot' which allows to pick windows
 ;; with the mouse, even windows from non-Emacs (!) programs.  See
