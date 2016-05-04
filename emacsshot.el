@@ -34,8 +34,8 @@
 
 ;; ** What emacsshot is
 
-;; Program emacsshot provides two functions to take a screenshot of Emacs
-;; from within Emacs.
+;; Program emacsshot provides a few commands to take a screenshot of
+;; Emacs from within Emacs.
 
 ;; [[./emacsshot.png]]
 
@@ -44,8 +44,12 @@
 ;; With the default settings =M-x emacsshot-snap-frame= creates file
 ;; '~/emacsshot.png' which is a snapshot of the current Emacs-frame.
 
-;; Further =M-x emacsshot-snap-window= creates file '~/emacsshot.png'
-;; which is a snapshot of the current Emacs-window.
+;; There is also =M-x emacsshot-snap-window= which is for creating a
+;; snapshot of the current Emacs-window.
+
+;; Further there is function =emacsshot-snap-window-exclude-modeline=
+;; which does as =emacsshot-snap-window= but excludes the modeline when
+;; taking the shot.  See also section [[id:db4e64e2-b400-4ec5-a393-9c5046720478][Hide the mode-line]].
 
 ;; The filenames are configurable.  Hint: =M-x customize-group emacsshot=.
 
@@ -83,6 +87,9 @@
 ;; the target name without asking.
 
 ;; *** Hide the mode-line
+;; :PROPERTIES:
+;; :ID:       db4e64e2-b400-4ec5-a393-9c5046720478
+;; :END:
 
 ;; If you don't want the mode-line in your emacsshot you can switch it
 ;; off with ~hidden-mode-line-mode~ from Bastien Guerry available at
@@ -119,10 +126,10 @@
 ;; ** Development
 ;; *** Lentic Literate Style
 
-;; This program is written in emacs lisp in lentic style based on the
+;; This program is written in Emacs Lisp in lentic style based on the
 ;; 'lentic' package [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
 
-;; This means the that this file can be regarded just as an emacs lisp
+;; This means the that this file can be regarded just as an Emacs Lisp
 ;; file.  But actually this file contains extra comments which allow the
 ;; interpretation of the file as Org file.  Lentic-mode makes it easy to
 ;; write this style.
@@ -162,13 +169,13 @@
 
 ;; #+BEGIN_SRC emacs-lisp
 (defcustom emacsshot-snap-frame-filename "~/emacsshot.png"
-  "Filename under which to store the next frame-snap. A
-timestamp may be added."
+  "Filename under which to store the next frame-snap.
+A timestamp may be added."
   :group 'emacsshot)
 
 (defcustom emacsshot-snap-window-filename "~/emacsshot.png"
-  "Filename under which to store the next window-snap. A
-timestamp may be added."
+  "Filename under which to store the next window-snap.
+A timestamp may be added."
   :group 'emacsshot)
 
 (defcustom emacsshot-with-timestamp nil
@@ -180,6 +187,7 @@ timestamp may be added."
 
 ;; #+BEGIN_SRC emacs-lisp
 (defun emacsshot-enhance-filename-with-timestamp (filename)
+  "Append a timestamp to the given FILENAME."
   (concat
    (or (file-name-sans-extension filename) "")
    "-"
@@ -190,6 +198,38 @@ timestamp may be added."
 ;; #+END_SRC
 
 ;; ** Snapshot Functions
+
+;; #+BEGIN_SRC emacs-lisp
+(defun emacsshot--snap-window (exclude-modeline)
+  "Save an image of the current window.
+
+  The image is stored with the name defined in
+  `emacsshot-snap-window-filename'.  There is no check against
+  overriding.
+Argument EXCLUDE-MODELINE nil means to not exclude, else exclude the modeline."
+  (let ((filename
+         (expand-file-name
+          (if emacsshot-with-timestamp
+              (emacsshot-enhance-filename-with-timestamp
+               emacsshot-snap-window-filename)
+            emacsshot-snap-window-filename))))
+    (if (= 0 (call-process
+              "convert"
+              nil (get-buffer-create "*convert-output*") nil
+              (format
+               "x:%s[%dx%d+%d+%d]"
+               (frame-parameter nil 'window-id)
+               (window-pixel-width)
+               (- (window-pixel-height)
+                  (if exclude-modeline
+                    (window-mode-line-height)
+                    0))
+               (nth 0 (window-pixel-edges))
+               (nth 1 (window-pixel-edges)))
+              filename))
+        (message (concat "Written file " filename))
+      (error (concat "Could not write file " filename)))))
+;; #+END_SRC
 
 ;; #+BEGIN_SRC emacs-lisp
 ;;;###autoload
@@ -224,25 +264,17 @@ timestamp may be added."
   `emacsshot-snap-window-filename'.  There is no check against
   overriding."
   (interactive)
-  (let ((filename
-         (expand-file-name
-          (if emacsshot-with-timestamp
-              (emacsshot-enhance-filename-with-timestamp
-               emacsshot-snap-window-filename)
-            emacsshot-snap-window-filename))))
-    (if (= 0 (call-process
-              "convert"
-              nil (get-buffer-create "*convert-output*") nil
-              (format
-               "x:%s[%dx%d+%d+%d]"
-               (frame-parameter nil 'window-id)
-               (window-pixel-width)
-               (window-pixel-height)
-               (nth 0 (window-pixel-edges))
-               (nth 1 (window-pixel-edges)))
-              filename))
-        (message (concat "Written file " filename))
-      (error (concat "Could not write file " filename)))))
+  (emacsshot--snap-window nil))
+
+;;;###autoload
+(defun emacsshot-snap-window-exclude-modeline ()
+    "Save an image of the current window without modeline.
+
+  The image is stored with the name defined in
+  `emacsshot-snap-window-filename'.  There is no check against
+  overriding."
+  (interactive)
+  (emacsshot--snap-window t))
 
 (provide 'emacsshot)
 
