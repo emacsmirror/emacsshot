@@ -46,11 +46,25 @@
 
 ;; ** Usage
 
+;; *** Quick
+
+;; With =emacsshot= there are
+
+;; - =M-x emacsshot-snap-frame=
+;; - =M-x emacsshot-snap-window=
+;; - =M-x emacsshot-snap-window-exclude-modeline=
+
+;; for creating a shot of Emacs.
+
+;; *** Hints and Detais
+
 ;; With the default settings =M-x emacsshot-snap-frame= creates file
-;; '~/emacsshot.png' which is a snapshot of the current Emacs-frame.
+;; '~/emacsshot.png' which is a snapshot of the current Emacs-frame
+;; with all its windows.
 
 ;; There is also =M-x emacsshot-snap-window= which is for creating a
-;; snapshot of the current Emacs-window.
+;; snapshot of the current Emacs-window (i.e. the window which contains
+;; the active cursor.)
 
 ;; Further there is function =emacsshot-snap-window-exclude-modeline=
 ;; which does as =emacsshot-snap-window= but excludes the modeline when
