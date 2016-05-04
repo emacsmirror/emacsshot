@@ -27,6 +27,11 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+;;; Meta:
+
+;; Create documentation by switching to the lentic Org view followed by
+;; export of subtree [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]].
+
 ;;; Documentation:
 ;;   :PROPERTIES:
 ;;   :ID:       7351e8d6-758c-4561-a938-1f9912f19f69
