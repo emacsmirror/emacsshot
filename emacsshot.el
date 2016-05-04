@@ -258,4 +258,4 @@ timestamp may be added."
 ;; # lentic-init: lentic-orgel-org-init
 ;; # End:
 
-;;; emacsshot:.el ends here
+;;; emacsshot.el ends here
