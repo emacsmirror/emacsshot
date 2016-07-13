@@ -219,13 +219,13 @@ A timestamp may be added."
 ;; ** Snapshot Functions
 
 ;; #+BEGIN_SRC emacs-lisp
-(defun emacsshot--snap-window (exclude-modeline)
+(defun emacsshot--snap-window (include-modeline)
   "Save an image of the current window.
 
   The image is stored with the name defined in
   `emacsshot-snap-window-filename'.  There is no check against
   overriding.
-Argument EXCLUDE-MODELINE nil means to not exclude, else exclude the modeline."
+Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
   (let ((filename
          (expand-file-name
           (if emacsshot-with-timestamp
@@ -239,10 +239,11 @@ Argument EXCLUDE-MODELINE nil means to not exclude, else exclude the modeline."
                "x:%s[%dx%d+%d+%d]"
                (frame-parameter nil 'window-id)
                (window-pixel-width)
-               (- (window-pixel-height)
-                  (if exclude-modeline
-                    (window-mode-line-height)
-                    0))
+               (+ (window-body-height nil t)
+                  (or (when include-modeline
+                        (window-mode-line-height))
+                      0))
+
                (nth 0 (window-pixel-edges))
                (nth 1 (window-pixel-edges)))
               filename))
@@ -283,7 +284,7 @@ Argument EXCLUDE-MODELINE nil means to not exclude, else exclude the modeline."
   `emacsshot-snap-window-filename'.  There is no check against
   overriding."
   (interactive)
-  (emacsshot--snap-window nil))
+  (emacsshot--snap-window t))
 
 ;;;###autoload
 (defun emacsshot-snap-window-exclude-modeline ()
@@ -293,7 +294,7 @@ Argument EXCLUDE-MODELINE nil means to not exclude, else exclude the modeline."
   `emacsshot-snap-window-filename'.  There is no check against
   overriding."
   (interactive)
-  (emacsshot--snap-window t))
+  (emacsshot--snap-window nil))
 
 (provide 'emacsshot)
 
