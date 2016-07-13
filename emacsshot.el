@@ -52,7 +52,7 @@
 
 ;; - =M-x emacsshot-snap-frame=
 ;; - =M-x emacsshot-snap-window=
-;; - =M-x emacsshot-snap-window-exclude-modeline=
+;; - =M-x emacsshot-snap-window-include-modeline=
 
 ;; for creating a shot of Emacs.
 
@@ -66,13 +66,13 @@
 ;; snapshot of the current Emacs-window (i.e. the window which contains
 ;; the active cursor.)
 
-;; Further there is function =emacsshot-snap-window-exclude-modeline=
-;; which does as =emacsshot-snap-window= but excludes the modeline when
-;; taking the shot.  See also section [[id:db4e64e2-b400-4ec5-a393-9c5046720478][Hide the mode-line]].
+;; Further there is function =emacsshot-snap-window-include-modeline=
+;; which does as =emacsshot-snap-window= but includes the modeline when
+;; taking the shot.
 
 ;; The filenames are configurable.  Hint: =M-x customize-group emacsshot=.
 
-;; It's also possible to add a timestamp to the filename as postfix.  See
+;; It's even possible to add a timestamp to the filename as postfix.  See
 ;; =M-x customize-variable emacsshot-with-timestamp=.
 
 ;; It might be a good idea to bind the functions to a key.  This can
@@ -104,15 +104,6 @@
 
 ;; Note that emacsshot currently trys to overwrite any existing file with
 ;; the target name without asking.
-
-;; *** Hide the mode-line
-;; :PROPERTIES:
-;; :ID:       db4e64e2-b400-4ec5-a393-9c5046720478
-;; :END:
-
-;; If you don't want the mode-line in your emacsshot you can switch it
-;; off with ~hidden-mode-line-mode~ from Bastien Guerry available at
-;; http://bzg.fr/emacs-hide-mode-line.html.
 
 ;; ** Install
 ;; *** Emacs Package
@@ -278,23 +269,23 @@ Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
 
 ;;;###autoload
 (defun emacsshot-snap-window ()
-  "Save an image of the current window.
-
-  The image is stored with the name defined in
-  `emacsshot-snap-window-filename'.  There is no check against
-  overriding."
-  (interactive)
-  (emacsshot--snap-window t))
-
-;;;###autoload
-(defun emacsshot-snap-window-exclude-modeline ()
-    "Save an image of the current window without modeline.
+  "Save an image of the current window (without modeline.)
 
   The image is stored with the name defined in
   `emacsshot-snap-window-filename'.  There is no check against
   overriding."
   (interactive)
   (emacsshot--snap-window nil))
+
+;;;###autoload
+(defun emacsshot-snap-window-include-modeline ()
+    "Save an image of the current window including the modeline.
+
+  The image is stored with the name defined in
+  `emacsshot-snap-window-filename'.  There is no check against
+  overriding."
+  (interactive)
+  (emacsshot--snap-window t))
 
 (provide 'emacsshot)
 
