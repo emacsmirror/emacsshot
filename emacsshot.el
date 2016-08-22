@@ -7,7 +7,6 @@
 
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
 ;; Maintainer: Marco Wahl
-;; Version: 0.3
 ;; Created: 2014-01-26
 ;; Keywords: convenience
 ;; URL: https://github.com/marcowahl/emacsshot
