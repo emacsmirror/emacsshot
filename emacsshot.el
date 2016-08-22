@@ -217,6 +217,13 @@ gets stored.  Note also that a timestamp may be added.  See
      "")))
 ;; #+END_SRC
 
+;; #+BEGIN_SRC emacs-lisp
+(defun emacsshot-build-filename (file-name &optional timestamp-p)
+  (if timestamp-p
+      (emacsshot-enhance-filename-with-timestamp file-name)
+    file-name))
+;; #+END_SRC
+
 ;; ** Snapshot Functions
 
 ;; #+BEGIN_SRC emacs-lisp
@@ -267,10 +274,9 @@ The image is stored with name FILENAME."
 Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
   (let ((filename
          (expand-file-name
-          (if emacsshot-with-timestamp
-              (emacsshot-enhance-filename-with-timestamp
-               emacsshot-snap-window-filename)
-            emacsshot-snap-window-filename))))
+          (emacsshot-build-filename
+           emacsshot-snap-window-filename
+           emacsshot-with-timestamp))))
     (if (= 0 (call-process
               "convert"
               nil (get-buffer-create "*convert-output*") nil
@@ -301,10 +307,9 @@ Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
   (interactive)
   (let ((filename
          (expand-file-name
-          (if emacsshot-with-timestamp
-              (emacsshot-enhance-filename-with-timestamp
-               emacsshot-snap-frame-filename)
-            emacsshot-snap-frame-filename))))
+          (emacsshot-build-filename
+           emacsshot-snap-frame-filename
+           emacsshot-with-timestamp))))
     (if (= 0 (call-process
               "convert"
               nil (get-buffer-create "*convert-output*") nil
