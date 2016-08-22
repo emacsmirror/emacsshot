@@ -309,24 +309,23 @@ Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
 (defun emacsshot-snap-window ()
   "Save an image of the current window (without modeline.)
 
-  The image is stored with the name defined in
-  `emacsshot-snap-window-filename'.  There is no check against
-  overriding."
+The image is stored with the name defined in
+`emacsshot-snap-window-filename'.  There is no check against
+overriding."
   (interactive)
   (emacsshot--snap-window nil))
 
 ;;;###autoload
 (defun emacsshot-snap-window-include-modeline ()
-    "Save an image of the current window including the modeline.
+  "Save an image of the current window including the modeline.
 
-  The image is stored with the name defined in
-  `emacsshot-snap-window-filename'.  There is no check against
-  overriding."
+The image is stored with the name defined in
+`emacsshot-snap-window-filename'.  There is no check against
+overriding."
   (interactive)
   (emacsshot--snap-window t))
 
 (provide 'emacsshot)
-
 ;; #+END_SRC
 
 ;;; Rest:
