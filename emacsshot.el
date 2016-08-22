@@ -1,4 +1,4 @@
-;;; emacsshot.el --- Snapshot a frame or window from within Emacs
+;;; emacsshot.el --- Snapshot a frame or window from within Emacs -*- lexical-binding: t -*-
 ;; #+STARTUP: oddeven
 
 ;;; Header:
