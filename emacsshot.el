@@ -230,6 +230,24 @@ The image is stored with name FILENAME."
       (message (concat "Written file " filename))
     (error (concat "Could not create snapshot to file " filename))))
 
+(defun emacsshot--snap-window-to-file (filename)
+  "Save an image of the current window.
+
+The image is stored with name FILENAME."
+  (if (= 0 (call-process
+            "convert"
+            nil (get-buffer-create "*convert-output*") nil
+            (format
+             "x:%s[%dx%d+%d+%d]"
+             (frame-parameter nil 'window-id)
+             (window-pixel-width)
+             (window-body-height nil t)
+             (nth 0 (window-pixel-edges))
+             (nth 1 (window-pixel-edges)))
+            filename))
+      (message (concat "Written file " filename))
+    (error (concat "Could not create snapshot to file " filename))))
+
 (defun emacsshot--snap-window (include-modeline)
   "Save an image of the current window.
 
