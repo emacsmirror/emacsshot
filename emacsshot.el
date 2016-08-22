@@ -70,9 +70,11 @@
 ;; which does as =emacsshot-snap-window= but includes the modeline when
 ;; taking the shot.
 
-;; The filenames are configurable.  Hint: =M-x customize-group emacsshot=.
+;; The filenames are configurable.  Hint: =M-x customize-group
+;; emacsshot=.  Note that the file-suffix defines the image-format under
+;; which the file gets stored.
 
-;; It's even possible to add a timestamp to the filename as postfix.  See
+;; It's possible to add a timestamp to the filename as postfix.  See
 ;; =M-x customize-variable emacsshot-with-timestamp=.
 
 ;; It might be a good idea to bind the functions to a key.  This can
@@ -134,6 +136,7 @@
 ;; =convert= actually creates the snapshots.
 
 ;; ** Development
+
 ;; *** Lentic Literate Style
 
 ;; This program is written in Emacs Lisp in lentic style based on the
@@ -180,20 +183,27 @@
 ;; #+BEGIN_SRC emacs-lisp
 (defcustom emacsshot-snap-frame-filename "~/emacsshot.png"
   "Filename under which to store the next frame-snap.
-A timestamp may be added."
-  :group 'emacsshot)
+The file-suffix defines the image-format under which the file
+gets stored.  Note also that a timestamp may be added.  See
+`emacsshot-with-timestamp'."
+  :group 'emacsshot
+  :type 'string)
 
 (defcustom emacsshot-snap-window-filename "~/emacsshot.png"
   "Filename under which to store the next window-snap.
-A timestamp may be added."
-  :group 'emacsshot)
+The file-suffix defines the image-format under which the file
+gets stored.  Note also that a timestamp may be added.  See
+`emacsshot-with-timestamp'."
+  :group 'emacsshot
+  :type 'string)
 
 (defcustom emacsshot-with-timestamp nil
-  "When t add current timestamp to the filename."
-  :group 'emacsshot)
+  "When on, add current timestamp to the filename."
+  :group 'emacsshot
+  :type 'boolean)
 ;; #+END_SRC
 
-;; ** Auxilliary Function
+;; ** Auxilliary Functions
 
 ;; #+BEGIN_SRC emacs-lisp
 (defun emacsshot-enhance-filename-with-timestamp (filename)
