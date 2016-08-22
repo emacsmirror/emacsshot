@@ -2,42 +2,42 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0c68ece">1. What</a></li>
-<li><a href="#org4d50f36">2. Usage</a>
+<li><a href="#orgb6e43cb">1. What</a></li>
+<li><a href="#org761e1da">2. Usage</a>
 <ul>
-<li><a href="#orgaad9855">2.1. Quick</a></li>
-<li><a href="#org81dcd1b">2.2. Hints and Detais</a></li>
+<li><a href="#org5545dd9">2.1. Quick</a></li>
+<li><a href="#org1a35f57">2.2. Hints and Detais</a></li>
 </ul>
 </li>
-<li><a href="#org99c49ab">3. Install</a>
+<li><a href="#org5521e23">3. Install</a>
 <ul>
-<li><a href="#org1a655a1">3.1. Emacs Package</a></li>
-<li><a href="#org56068ef">3.2. Direct Install</a></li>
+<li><a href="#orged9cdf1">3.1. Emacs Package</a></li>
+<li><a href="#org9484278">3.2. Direct Install</a></li>
 </ul>
 </li>
-<li><a href="#org7fd7fb7">4. Dependencies</a></li>
-<li><a href="#org796733d">5. Development</a>
+<li><a href="#org94758a4">4. Dependencies</a></li>
+<li><a href="#orgbd22e9f">5. Development</a>
 <ul>
-<li><a href="#org7d3be3f">5.1. Lentic Literate Style</a></li>
-<li><a href="#org5b602c5">5.2. Ideas, Contributions, Bugs</a></li>
+<li><a href="#org2a05c62">5.1. Lentic Literate Style</a></li>
+<li><a href="#orged10f84">5.2. Ideas, Contributions, Bugs</a></li>
 </ul>
 </li>
-<li><a href="#org7cb048d">6. Related</a></li>
-<li><a href="#org11f2620">7. History</a></li>
+<li><a href="#org8ff354d">6. Related</a></li>
+<li><a href="#org207981d">7. History</a></li>
 </ul>
 </div>
 </div>
 
-# What<a id="org0c68ece"></a>
+# What<a id="orgb6e43cb"></a>
 
 `emacsshot` provides a few commands to take a screenshot of
 Emacs from within Emacs.
 
 ![img](./emacsshot.png)
 
-# Usage<a id="org4d50f36"></a>
+# Usage<a id="org761e1da"></a>
 
-## Quick<a id="orgaad9855"></a>
+## Quick<a id="org5545dd9"></a>
 
 With `emacsshot` there are
 
@@ -47,7 +47,7 @@ With `emacsshot` there are
 
 for creating a shot of Emacs.
 
-## Hints and Detais<a id="org81dcd1b"></a>
+## Hints and Detais<a id="org1a35f57"></a>
 
 With the default settings `M-x emacsshot-snap-frame` creates file
 '~/emacsshot.png' which is a snapshot of the current Emacs-frame
@@ -61,9 +61,11 @@ Further there is function `emacsshot-snap-window-include-modeline`
 which does as `emacsshot-snap-window` but includes the modeline when
 taking the shot.
 
-The filenames are configurable.  Hint: `M-x customize-group emacsshot`.
+The filenames are configurable.  Hint: `M-x customize-group
+emacsshot`.  Note that the file-suffix defines the image-format under
+which the file gets stored.
 
-It's even possible to add a timestamp to the filename as postfix.  See
+It's possible to add a timestamp to the filename as postfix.  See
 `M-x customize-variable emacsshot-with-timestamp`.
 
 It might be a good idea to bind the functions to a key.  This can
@@ -92,15 +94,15 @@ current window by prefixing the keypress with C-u.
 Note that emacsshot currently trys to overwrite any existing file with
 the target name without asking.
 
-# Install<a id="org99c49ab"></a>
+# Install<a id="org5521e23"></a>
 
-## Emacs Package<a id="org1a655a1"></a>
+## Emacs Package<a id="orged9cdf1"></a>
 
 When emacsshot has been installed as elpa-package
 [![img](http://melpa.org/packages/emacsshot-badge.svg)](http://melpa.org/#/emacsshot) then the functions
 are available without need of further action.
 
-## Direct Install<a id="org56068ef"></a>
+## Direct Install<a id="org9484278"></a>
 
 Activate this program by loading it into Emacs and evaluate it with
 `M-x eval-buffer`.
@@ -112,16 +114,16 @@ Automatically activate this program at Emacs start by adding the lines
 
 to your .emacs or whatever you use for Emacs intitialization.
 
-# Dependencies<a id="org7fd7fb7"></a>
+# Dependencies<a id="org94758a4"></a>
 
 -   Emacs is running under X.
 -   The programm `convert` of the ImageMagick-suite is available.
 
 `convert` actually creates the snapshots.
 
-# Development<a id="org796733d"></a>
+# Development<a id="orgbd22e9f"></a>
 
-## Lentic Literate Style<a id="org7d3be3f"></a>
+## Lentic Literate Style<a id="org2a05c62"></a>
 
 This program is written in Emacs Lisp in lentic style based on the
 'lentic' package [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
@@ -138,14 +140,14 @@ A possible initialization of lentic is this:
 Find more about lentic at
 [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
 
-## Ideas, Contributions, Bugs<a id="org5b602c5"></a>
+## Ideas, Contributions, Bugs<a id="orged10f84"></a>
 
 Contributions, ideas and bug-reports are welcome.
 
 Please use the infrastructure of github for communication.  See
 <https://github.com/marcowahl/emacsshot/issues>.
 
-# Related<a id="org7cb048d"></a>
+# Related<a id="org8ff354d"></a>
 
 There is elpa-package 'screenshot' which allows to pick windows
 with the mouse, even windows from non-Emacs (!) programs.  See
@@ -153,7 +155,7 @@ with the mouse, even windows from non-Emacs (!) programs.  See
 
 emacsshot only takes images of Emacs.
 
-# History<a id="org11f2620"></a>
+# History<a id="org207981d"></a>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
