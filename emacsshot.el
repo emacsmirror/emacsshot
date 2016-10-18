@@ -282,13 +282,12 @@ Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
               (format
                "x:%s[%dx%d+%d+%d]"
                (frame-parameter nil 'window-id)
-               (window-pixel-width)
+               (1- (window-pixel-width))
                (+ (window-body-height nil t)
                   (or (when include-modeline
                         (window-mode-line-height))
                       0))
-
-               (nth 0 (window-pixel-edges))
+               (+ 1 (nth 0 (window-pixel-edges)))
                (nth 1 (window-pixel-edges)))
               filename))
         (message (concat "Written file " filename))
