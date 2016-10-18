@@ -66,8 +66,8 @@
 ;; the active cursor.)
 
 ;; Further there is function =emacsshot-snap-window-include-modeline=
-;; which does as =emacsshot-snap-window= but includes the modeline when
-;; taking the shot.
+;; which does the same as =emacsshot-snap-window= but also includes the
+;; modeline when taking the shot.
 
 ;; The filenames are configurable.  Hint: =M-x customize-group
 ;; emacsshot=.  Note that the file-suffix defines the image-format under
@@ -80,6 +80,7 @@
 ;; make the usage more convenient.  Further the binding is a way to
 ;; avoid images which contain the command that has been used to create
 ;; the image e.g. "M-x emacsshot-snap-frame" in the minibuffer.
+
 ;; Beware of the heisenshot!
 
 ;; Concretely the print-key could trigger the shot.  Evaluation of
@@ -107,6 +108,7 @@
 ;; the target name without asking.
 
 ;; ** Install
+
 ;; *** Emacs Package
 
 ;; When emacsshot has been installed as elpa-package
@@ -343,10 +345,10 @@ overriding."
 
 ;;; Rest:
 
-;; You can export section
-;; [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]] to get
-;; documentation.  E.g. a README.md suitable for github.
+;; You can export section [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]] to get documentation.  E.g. a
+;; README.md suitable for github.
 
+
 ;; # Local Variables:
 ;; # lentic-init: lentic-orgel-org-init
 ;; # End:
