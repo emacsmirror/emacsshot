@@ -3,7 +3,7 @@
 
 ;;; Header:
 
-;; Copyright 2014-2016 Marco Wahl
+;; Copyright 2014-2019 Marco Wahl
 
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
 ;; Maintainer: Marco Wahl
