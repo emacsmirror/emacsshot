@@ -1,4 +1,4 @@
-;;; emacsshot.el --- Snapshot a frame or window from within Emacs -*- lexical-binding: t -*-
+;;; emacsshot.el --- Snapshot a frame or window from within -*- lexical-binding: t -*-
 ;; #+STARTUP: oddeven
 
 ;;; Header:
@@ -8,8 +8,10 @@
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
 ;; Maintainer: Marco Wahl
 ;; Created: 2014-01-26
+;; Version: 0.4.1
 ;; Keywords: convenience
 ;; URL: https://github.com/marcowahl/emacsshot
+;; Package-Requires: ((emacs "24.4"))
 
 ;; This file is not part of Emacs.
 
