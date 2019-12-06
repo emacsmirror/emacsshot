@@ -196,5 +196,11 @@ emacsshot only takes images of Emacs.
 <td class="org-right">201505162319</td>
 <td class="org-left">Optionally add timestamp to save-filename</td>
 </tr>
+
+<tr>
+<td class="org-right">201912060235</td>
+<td class="org-left">New function to take snapshot of a rectangle defined by a mouse-drag</td>
+</tr>
+
 </tbody>
 </table>
