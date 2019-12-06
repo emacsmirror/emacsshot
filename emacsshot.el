@@ -200,6 +200,14 @@ gets stored.  Note also that a timestamp may be added.  See
   :group 'emacsshot
   :type 'string)
 
+(defcustom emacsshot-snap-mouse-filename "~/mouseshot.png"
+  "Filename under which to store the next mouse-snap.
+The file-suffix defines the image-format under which the file
+gets stored.  Note also that a timestamp may be added.  See
+`emacsshot-with-timestamp'."
+  :group 'emacsshot
+  :type 'string)
+
 (defcustom emacsshot-with-timestamp nil
   "When on, add current timestamp to the filename."
   :group 'emacsshot
@@ -341,6 +349,52 @@ The image is stored with the name defined in
 overriding."
   (interactive)
   (emacsshot--snap-window t))
+
+;;;###autoload
+(defun emacsshot-snap-mouse-drag ()
+  "Save an image of the current window.
+
+  The image is stored with the name defined in
+  `emacsshot-snap-window-filename'.  There is no check against
+  overriding.
+Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
+  (interactive)
+  (let ((drag-rectangle
+         (let (done) ;; from docview-mode.
+           (while (not done)
+             (let ((e (read-event
+	               (concat "Press mouse-1 and drag to the other corner."))))
+               (when (eq (car e) 'drag-mouse-1)
+                 (let ((x1 (car (posn-x-y (event-start e))))
+                       (y1 (cdr (posn-x-y (event-start e))))
+                       (x2 (car (posn-x-y (event-end e))))
+                       (y2 (cdr (posn-x-y (event-end e)))))
+                   (setq done
+                         (list
+                          (min x1 x2)
+                          (min y1 y2)
+                          (max x1 x2)
+                          (max y1 y2)))))))
+           done))
+        (filename
+         (expand-file-name
+          (emacsshot-build-filename
+           emacsshot-snap-mouse-filename
+           emacsshot-with-timestamp))))
+    (message "%s drag-rectangle." drag-rectangle)
+    (if (= 0 (call-process
+              "convert"
+              nil (get-buffer-create "*convert-output*") nil
+              (format
+               "x:%s[%dx%d+%d+%d]"
+               (frame-parameter nil 'window-id)
+               (- (nth 2 drag-rectangle) (nth 0 drag-rectangle))
+               (- (nth 3 drag-rectangle) (nth 1 drag-rectangle))
+               (+ (1+ (nth 0 (window-pixel-edges))) (nth 0 drag-rectangle))
+               (+ (nth 1 (window-pixel-edges)) (nth 1 drag-rectangle)))
+              filename))
+        (find-file filename)
+      (error (concat "Could not write file " filename)))))
 
 (provide 'emacsshot)
 ;; #+END_SRC
