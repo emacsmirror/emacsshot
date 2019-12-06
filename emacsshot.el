@@ -10,7 +10,7 @@
 ;; Created: 2014-01-26
 ;; Version: 0.5.0
 ;; Keywords: convenience
-;; URL: https://github.com/marcowahl/emacsshot
+;; URL: https://gitlab.com/marcowahl/emacsshot
 ;; Package-Requires: ((emacs "24.4"))
 
 ;; This file is not part of Emacs.
@@ -28,15 +28,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-;;; Meta:
-
-;; Create documentation by switching to the lentic Org view followed by
-;; export of subtree [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]].
-
 ;;; Documentation:
-;;   :PROPERTIES:
-;;   :ID:       7351e8d6-758c-4561-a938-1f9912f19f69
-;;   :END:
 
 ;; ** What
 
@@ -148,31 +140,10 @@
 
 ;; ** Development
 
-;; *** Lentic Literate Style
-
-;; This program is written in Emacs Lisp in lentic style based on the
-;; 'lentic' package [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
-
-;; This means the that this file can be regarded just as an Emacs Lisp
-;; file.  But actually this file contains extra comments which allow the
-;; interpretation of the file as Org file.  Lentic-mode makes it easy to
-;; write this style.
-
-;; A possible initialization of lentic is this:
-
-;; #+BEGIN_EXAMPLE
-;; (global-lentic-start-mode)
-;; #+END_EXAMPLE
-
-;; Find more about lentic at
-;; [[http://melpa.org/#/lentic][file:http://melpa.org/packages/lentic-badge.svg]].
-
 ;; *** Ideas, Contributions, Bugs
 
-;; Contributions, ideas and bug-reports are welcome.
-
-;; Please use the infrastructure of github for communication.  See
-;; https://github.com/marcowahl/emacsshot/issues.
+;; Contributions, ideas and bug-reports are welcome.  Contact the
+;; maintainer.
 
 ;; ** Related
 
@@ -409,14 +380,7 @@ overriding."
 (provide 'emacsshot)
 ;; #+END_SRC
 
-;;; Rest:
-
-;; You can export section [[id:7351e8d6-758c-4561-a938-1f9912f19f69][Documentation]] to get documentation.  E.g. a
-;; README.md suitable for github.
 
 
-;; # Local Variables:
-;; # lentic-init: lentic-orgel-org-init
-;; # End:
 
 ;;; emacsshot.el ends here
