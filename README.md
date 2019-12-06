@@ -18,8 +18,7 @@
 <li><a href="#org17f1ee5">4. Dependencies</a></li>
 <li><a href="#orgd5fc0a8">5. Development</a>
 <ul>
-<li><a href="#orgb33d1ab">5.1. Lentic Literate Style</a></li>
-<li><a href="#org4e8e80c">5.2. Ideas, Contributions, Bugs</a></li>
+<li><a href="#org4e8e80c">5.1. Ideas, Contributions, Bugs</a></li>
 </ul>
 </li>
 <li><a href="#org2fc1a5e">6. Related</a></li>
@@ -52,6 +51,7 @@ With `emacsshot` there are
 -   `M-x emacsshot-snap-frame`
 -   `M-x emacsshot-snap-window`
 -   `M-x emacsshot-snap-window-include-modeline`
+-   `M-x emacsshot-snap-mouse-drag`
 
 for creating a shot of Emacs.
 
@@ -72,9 +72,14 @@ Further there is function `emacsshot-snap-window-include-modeline`
 which does the same as `emacsshot-snap-window` but also includes the
 modeline when taking the shot.
 
+There is function `emacsshot-snap-mouse-drag` which snaps the
+rectangle defined by a drag i.e. press button-1, keep pressed, move
+the mouse and release the button.
+
 The filenames are configurable.  Hint: `M-x customize-group
 emacsshot`.  Note that the file-suffix defines the image-format under
-which the file gets stored.
+which the file gets stored.  Note that the filenames may
+contain paths which allows some organization of the shots.
 
 It's possible to add a timestamp to the filename as postfix.  See
 `M-x customize-variable emacsshot-with-timestamp`.
@@ -89,6 +94,7 @@ Beware of the heisenshot!
 Concretely the print-key could trigger the shot.  Evaluation of
 
     (global-set-key [print] 'emacsshot-snap-frame)
+    (global-set-key (kbd "C-M-S-<mouse-1>") 'emacsshot-snap-mouse-drag)
 
 yields this behavior.
 
@@ -150,36 +156,11 @@ to your .emacs or whatever you use for Emacs intitialization.
 
 # Development
 
-
-<a id="orgb33d1ab"></a>
-
-## Lentic Literate Style
-
-This program is written in Emacs Lisp in lentic style based on the
-'lentic' package [![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
-
-This means the that this file can be regarded just as an Emacs Lisp
-file.  But actually this file contains extra comments which allow the
-interpretation of the file as Org file.  Lentic-mode makes it easy to
-write this style.
-
-A possible initialization of lentic is this:
-
-    (global-lentic-start-mode)
-
-Find more about lentic at
-[![img](http://melpa.org/packages/lentic-badge.svg)](http://melpa.org/#/lentic).
-
-
 <a id="org4e8e80c"></a>
 
 ## Ideas, Contributions, Bugs
 
 Contributions, ideas and bug-reports are welcome.
-
-Please use the infrastructure of github for communication.  See
-<https://github.com/marcowahl/emacsshot/issues>.
-
 
 <a id="org2fc1a5e"></a>
 

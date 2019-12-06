@@ -8,7 +8,7 @@
 ;; Author: Marco Wahl <marcowahlsoft@gmail.com>
 ;; Maintainer: Marco Wahl
 ;; Created: 2014-01-26
-;; Version: 0.4.1
+;; Version: 0.5.0
 ;; Keywords: convenience
 ;; URL: https://github.com/marcowahl/emacsshot
 ;; Package-Requires: ((emacs "24.4"))
@@ -186,6 +186,7 @@
 
 ;; | 201501071941 | New function to take snapshot of a window |
 ;; | 201505162319 | Optionally add timestamp to save-filename |
+;; | 201912060235 | New function to take snapshot of a rectangle defined by a mouse-drag |
 
 ;;; Code:
 
