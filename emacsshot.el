@@ -54,6 +54,7 @@
 ;; - =M-x emacsshot-snap-frame=
 ;; - =M-x emacsshot-snap-window=
 ;; - =M-x emacsshot-snap-window-include-modeline=
+;; - =M-x emacsshot-snap-mouse-drag=
 
 ;; for creating a shot of Emacs.
 
@@ -67,13 +68,18 @@
 ;; snapshot of the current Emacs-window (i.e. the window which contains
 ;; the active cursor.)
 
-;; Further there is function =emacsshot-snap-window-include-modeline=
+;; There is function =emacsshot-snap-window-include-modeline=
 ;; which does the same as =emacsshot-snap-window= but also includes the
 ;; modeline when taking the shot.
 
+;; There is function =emacsshot-snap-mouse-drag= which snaps the
+;; rectangle defined by a drag i.e. press button-1, keep pressed, move
+;; the mouse and release the button.
+
 ;; The filenames are configurable.  Hint: =M-x customize-group
-;; emacsshot=.  Note that the file-suffix defines the image-format under
-;; which the file gets stored.
+;; emacsshot=.  Note that the file-suffix defines the image-format
+;; under which the file gets stored.  Note that the filenames may
+;; contain paths which allows some organization of the shots.
 
 ;; It's possible to add a timestamp to the filename as postfix.  See
 ;; =M-x customize-variable emacsshot-with-timestamp=.
@@ -89,6 +95,8 @@
 
 ;; #+BEGIN_EXAMPLE
 ;; (global-set-key [print] 'emacsshot-snap-frame)
+;; (global-set-key (kbd "C-M-S-mouse-1") 'emacsshot-snap-mouse-drag)
+
 ;; #+END_EXAMPLE
 
 ;; yields this behavior.
@@ -352,12 +360,13 @@ overriding."
 
 ;;;###autoload
 (defun emacsshot-snap-mouse-drag ()
-  "Save an image of the current window.
+  "Save an image of a rectangle defined by a mouse-drag.
+For a mouse-drag press button-1, keep pressed, move the mouse and
+release.
 
-  The image is stored with the name defined in
-  `emacsshot-snap-window-filename'.  There is no check against
-  overriding.
-Argument INCLUDE-MODELINE t means to include, else exclude the modeline."
+The image is stored with the name defined in
+`emacsshot-snap-mouse-filename'.  There is no check against
+overriding."
   (interactive)
   (let ((drag-rectangle
          (let (done) ;; from docview-mode.
