@@ -95,7 +95,7 @@
 
 ;; #+BEGIN_EXAMPLE
 ;; (global-set-key [print] 'emacsshot-snap-frame)
-;; (global-set-key (kbd "C-M-S-mouse-1") 'emacsshot-snap-mouse-drag)
+;; (global-set-key (kbd "C-M-S-<mouse-1>") 'emacsshot-snap-mouse-drag)
 
 ;; #+END_EXAMPLE
 
